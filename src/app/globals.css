@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .custom_bg_green{
+    background-color: #075e54;
+  }
+  .custom_text-green{
+    color: #128c7e;
+  }
+}
