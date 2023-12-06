@@ -1,14 +1,13 @@
-import Navbar from '@/components/Navbar'
-import Image from 'next/image'
+import UserCard from "@/components/UserCard";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <main>
-      <Navbar/>
-
+      <main className="bg-gray-600">
+        <UserCard />
         <h1>Hello world</h1>
       </main>
     </>
-  )
+  );
 }
