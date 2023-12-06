@@ -12,7 +12,7 @@ import {
   MoreVertical,
 } from "lucide-react";
 import { useRef, useState } from "react";
-import Webcam from "react-webcam";
+// import Webcam from "react-webcam";
 
 const Navbar: React.FC = () => {
   const [activeLink, setActiveLink] = useState("");
@@ -20,23 +20,23 @@ const Navbar: React.FC = () => {
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
   };
-  const webcamRef = useRef<Webcam>(null);
-  const [error, setError] = useState<string | null>(null);
+  // const webcamRef = useRef<Webcam>(null);
+  // const [error, setError] = useState<string | null>(null);
 
-  const startCamera = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      if (webcamRef.current) {
-        const video = webcamRef.current.video as HTMLVideoElement;
-        video.srcObject = stream;
-      }
-    } catch (error) {
-      console.error("Error accessing camera:", error);
-      setError(
-        "Error accessing camera. Please make sure your camera is connected and permissions are granted."
-      );
-    }
-  };
+  // const startCamera = async () => {
+  //   try {
+  //     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+  //     if (webcamRef.current) {
+  //       const video = webcamRef.current.video as HTMLVideoElement;
+  //       video.srcObject = stream;
+  //     }
+  //   } catch (error) {
+  //     console.error("Error accessing camera:", error);
+  //     setError(
+  //       "Error accessing camera. Please make sure your camera is connected and permissions are granted."
+  //     );
+  //   }
+  // };
 
   return (
     <nav className=" custom_bg_green text-white p-4 pb-0">
@@ -45,14 +45,9 @@ const Navbar: React.FC = () => {
           <h5 className="text-lg tracking-wide"> WhatsApp</h5>
         </div>
         <div className="links flex items-center">
-            <button onClick={startCamera}>Start Camera</button>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <Webcam
-              audio={false}
-              ref={webcamRef}
-              mirrored={true}
-              screenshotFormat="image/jpeg"
-            />
+          <Link href="/groups " className="mx-5">
+            <Camera className="text-2xl" />
+          </Link>
           <Link href="/groups " className="mx-5">
             <Search className="text-2xl" />
           </Link>
